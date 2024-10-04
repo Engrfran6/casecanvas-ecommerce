@@ -1,9 +1,9 @@
-name: Deploy Next.js App
+name: Deploy Next.js App to Vercel
 
 on:
   push:
     branches:
-      - main # Trigger workflow on push or pull request to the main branch
+      - main # Trigger workflow on push to the main branch
   pull_request:
     branches:
       - main
@@ -21,7 +21,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18' # Use Node.js version 18 (can be changed)
+          node-version: '18' # Specify the Node.js version
 
       # Step 3: Install dependencies
       - name: Install dependencies
@@ -35,38 +35,21 @@ jobs:
       - name: Run tests
         run: npm test
 
-  # Deploy job: This depends on where you deploy your Next.js app
-  # Example 1: Deploy to Vercel (if using Vercel)
   deploy-vercel:
     needs: build
     runs-on: ubuntu-latest
+
     steps:
+      # Step 1: Checkout code
       - name: Checkout code
         uses: actions/checkout@v3
 
+      # Step 2: Deploy to Vercel
       - name: Deploy to Vercel
         uses: amondnet/vercel-action@v20
         with:
           vercel-token: ${{ secrets.VERCEL_TOKEN }} # Add your Vercel token to GitHub Secrets
-          vercel-args: '--prod'
-          working-dir: './' # Adjust if necessary
+          vercel-args: '--prod' # Deploy to production
+          working-dir: './' # Adjust this if your Next.js app is in a subdirectory
         env:
-          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }} # Add your Vercel organization ID to GitHub Secrets
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }} # Add your Vercel project ID to GitHub Secrets
-
-  # Example 2: Deploy to Netlify (if using Netlify)
-  deploy-netlify:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      - name: Install Netlify CLI
-        run: npm install netlify-cli -g
-
-      - name: Deploy to Netlify
-        run: netlify deploy --prod --dir=out
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }} # Add your Netlify token to GitHub Secrets
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }} # Add your Netlify site ID to GitHub Secrets
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }} # Add your Vercel Project ID to GitHub Secrets
