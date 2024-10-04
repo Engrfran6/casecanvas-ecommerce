@@ -1,55 +1,33 @@
-name: Deploy Next.js App to Vercel
+name: Deploy to Vercel
 
 on:
   push:
     branches:
-      - main # Trigger workflow on push to the main branch
-  pull_request:
-    branches:
       - main
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
-
     steps:
-      # Step 1: Checkout the code
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v2
 
-      # Step 2: Set up Node.js environment
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
         with:
-          node-version: '18' # Specify the Node.js version
+          node-version: '14' # Specify your Node.js version
 
-      # Step 3: Install dependencies
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm install
 
-      # Step 4: Build the Next.js app
-      - name: Build the Next.js app
-        run: npm run build
+      - name: Run Tests
+        run: npm run test
 
-      # Step 5: Run tests (optional)
-      - name: Run tests
-        run: npm test
-
-  deploy-vercel:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      # Step 1: Checkout code
-      - name: Checkout code
-        uses: actions/checkout@v3
-
-      # Step 2: Deploy to Vercel
-      - name: Deploy to Vercel
+      - name: Vercel Deployment
         uses: amondnet/vercel-action@v20
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Add your Vercel token to GitHub Secrets
-          vercel-args: '--prod' # Deploy to production
-          working-dir: './' # Adjust this if your Next.js app is in a subdirectory
-        env:
-          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }} # Add your Vercel Project ID to GitHub Secrets
+          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-args: '--prod'
+          working-directory: ./
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
+          # vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
