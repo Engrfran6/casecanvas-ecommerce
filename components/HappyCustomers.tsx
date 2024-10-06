@@ -24,7 +24,7 @@ const HappyCustomers = () => {
       </div>
 
       <div className="flex flex-col justify-between items-center sm:items-start">
-        <StarRating likes={4} />
+        <StarRating likes={5} />
         <p>
           <span className="font-semibold">1,250</span> happy customers
         </p>
