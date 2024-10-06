@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3 # Updated to the latest v3
 
       - name: Setup Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3 # Updated to the latest v3
         with:
           node-version: '20.13.1' # Specify your Node.js version
 
@@ -26,8 +26,8 @@ jobs:
       - name: Vercel Deployment
         uses: amondnet/vercel-action@v20
         with:
-          vercel-token: ${{ secrets.VERCEL_TOKEN }}
+          vercel-token: ${{ secrets.VERCEL_TOKEN }} # Make sure this is stored in GitHub Secrets
           vercel-args: '--prod'
           working-directory: ./
-          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }}
-          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }}
+          vercel-project-id: ${{ secrets.VERCEL_PROJECT_ID }} # Also ensure this is stored in GitHub Secrets
+          vercel-org-id: ${{ secrets.VERCEL_ORG_ID }} # Also ensure this is stored in GitHub Secrets
