@@ -1,7 +1,7 @@
 import {type ClassValue, clsx} from 'clsx';
+import CryptoJS from 'crypto-js';
 import {Metadata} from 'next';
 import {twMerge} from 'tailwind-merge';
-import CryptoJS from 'crypto-js';
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

@@ -1,12 +1,12 @@
 // components/NavbarClient.js
 'use client';
-import {useState} from 'react';
+import {KindeUser} from '@kinde-oss/kinde-auth-nextjs/types';
+import {ArrowUpRightFromCircle, Search, ShoppingCartIcon, User2Icon} from 'lucide-react';
 import Link from 'next/link';
+import {useState} from 'react';
 import Humburger from './humburger/Humburger';
 import {NavbarMenu} from './NavDropdown';
 import {buttonVariants} from './ui/button';
-import {ArrowUpRightFromCircle, Search, ShoppingCartIcon, User2Icon} from 'lucide-react';
-import {KindeUser} from '@kinde-oss/kinde-auth-nextjs/types';
 
 type NavbarProps = {
   user: KindeUser<Record<string, unknown>>;

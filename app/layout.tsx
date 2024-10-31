@@ -1,10 +1,10 @@
+import Footer from '@/components/Footer';
+import Navbar from '@/components/Navbar';
+import Providers from '@/components/Providers';
+import {Toaster} from '@/components/ui/toaster';
+import {constructMetadata} from '@/lib/utils';
 import {Recursive} from 'next/font/google';
 import './globals.css';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import {Toaster} from '@/components/ui/toaster';
-import Providers from '@/components/Providers';
-import {constructMetadata} from '@/lib/utils';
 
 const recursive = Recursive({subsets: ['latin']});
 

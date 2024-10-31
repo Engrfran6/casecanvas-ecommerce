@@ -1,7 +1,7 @@
-import MaxWidthWrapper from './MaxWidthWrapper';
-import Phone from './Phone';
 import {ArrowRight, Check} from 'lucide-react';
 import Link from 'next/link';
+import MaxWidthWrapper from './MaxWidthWrapper';
+import Phone from './Phone';
 import {buttonVariants} from './ui/button';
 
 const CasePreview = () => {
@@ -33,7 +33,7 @@ const CasePreview = () => {
         <div className=" p-3">
           <ul className="flex flex-col gap-4">
             {instructions.map((instruct, i) => (
-              <li className="flex justify-center gap-1 text-center md:text-start">
+              <li key={i} className="flex justify-center gap-1 text-center md:text-start">
                 <span className="font-bold text-xl">{i + 1}.</span>
                 <span className="flex flex-col gap-1">
                   <span className="text-xl font-bold">{instruct.title}</span>

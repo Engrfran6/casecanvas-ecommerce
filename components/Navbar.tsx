@@ -1,7 +1,7 @@
 // components/Navbar.js
-import NavbarClient from './NavbarClient';
-import MaxWidthWrapper from './MaxWidthWrapper';
 import {getKindeServerSession} from '@kinde-oss/kinde-auth-nextjs/server';
+import MaxWidthWrapper from './MaxWidthWrapper';
+import NavbarClient from './NavbarClient';
 import NewsNavbar from './NewsNavbar';
 
 const Navbar = async () => {

@@ -1,7 +1,5 @@
 'use client';
 
-import * as React from 'react';
-import Autoplay from 'embla-carousel-autoplay';
 import {
   Carousel,
   CarouselContent,
@@ -9,6 +7,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/ui/carousel';
+import Autoplay from 'embla-carousel-autoplay';
+import * as React from 'react';
 
 const NewsNavbarCarousel = () => {
   const [display, setDisplay] = React.useState(false);
