@@ -17,8 +17,8 @@ export const formatPrice = (price: number) => {
 };
 
 export function constructMetadata({
-  title = 'CaseCanvas - custom high-quality phone cases',
-  description = 'Create custom high-quality phone cases in seconds',
+  title = 'CustomHub – Custom high-quality gear for home, office, and beyond',
+  description = 'Create custom, high-quality products in seconds with CustomHub',
   image = '/thumbnail.png',
   icons = '/favicon.ico',
 }: {
@@ -40,10 +40,10 @@ export function constructMetadata({
       title,
       description,
       images: [image],
-      creator: '@joshtriedcoding',
+      creator: '@codewith_deulo',
     },
     icons,
-    metadataBase: new URL('https://CaseCanvas.vercel.app/'),
+    metadataBase: new URL('https://customhub.vercel.app/'),
   };
 }
 

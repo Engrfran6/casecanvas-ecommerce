@@ -1,0 +1,40 @@
+/* Hamburger animation */
+.hamburger {
+  display: inline-block;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  position: relative;
+}
+
+.line {
+  background-color: #333;
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  transition: 0.3s;
+}
+
+.line:nth-child(1) {
+  top: 4px;
+}
+
+.line:nth-child(2) {
+  top: 12px;
+}
+
+.line:nth-child(3) {
+  top: 20px;
+}
+
+.hamburger.open .line:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.open .line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open .line:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}

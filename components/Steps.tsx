@@ -7,7 +7,7 @@ const STEPS = [
   {
     name: 'Step 1: Add image',
     description: 'Choose an image for your case',
-    url: '/upload',
+    url: '/upload ',
   },
   {
     name: 'Step 2: Customize design',
@@ -29,7 +29,7 @@ const Steps = () => {
       {STEPS.map((step, i) => {
         const isCurrent = pathname.endsWith(step.url);
         const isCompleted = STEPS.slice(i + 1).some((step) => pathname.endsWith(step.url));
-        const imgPath = `/snake-${i + 1}.png`;
+        const imgPath = `/upload-${i + 1}.png`;
 
         return (
           <li key={step.name} className="relative overflow-hidden lg:flex-1">

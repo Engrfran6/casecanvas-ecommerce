@@ -50,12 +50,14 @@ const Page = () => {
   return (
     <div
       className={cn(
-        'relative h-full flex-1 my-16 w-full rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:rounded-2xl flex justify-center flex-col items-center',
-        {
-          'ring-blue-900/25 bg-blue-900/10': isDragOver,
-        }
+        'relative h-full flex-1 my-16 w-full rounded-xl bg-purple-100 p-2 ring-1 ring-inset ring-gray-900/10 lg:rounded-2xl flex justify-center flex-col items-center',
+        isDragOver && 'ring-blue-900/25 bg-blue-900/10'
       )}>
-      <div className="relative flex flex-1 flex-col items-center justify-center w-full">
+      <div
+        className={cn(
+          'relative flex flex-1 flex-col items-center justify-center w-full',
+          isUploading ? 'cursor-wait' : ''
+        )}>
         <Dropzone
           onDropRejected={onDropRejected}
           onDropAccepted={onDropAccepted}
@@ -68,7 +70,7 @@ const Page = () => {
           onDragLeave={() => setIsDragOver(false)}>
           {({getRootProps, getInputProps}) => (
             <div
-              className="h-full w-full flex-1 flex flex-col items-center justify-center"
+              className="h-full w-full flex-1 flex flex-col items-center justify-center cursor-pointer"
               {...getRootProps()}>
               <input {...getInputProps()} />
               {isDragOver ? (
