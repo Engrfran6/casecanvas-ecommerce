@@ -1,7 +1,7 @@
-import Link from 'next/link';
-import MaxWidthWrapper from './MaxWidthWrapper';
 import {ArrowUpRightFromCircle, Check} from 'lucide-react';
+import Link from 'next/link';
 import HappyCustomers from './HappyCustomers';
+import MaxWidthWrapper from './MaxWidthWrapper';
 import Phone from './Phone';
 
 const Hero = () => {
@@ -39,7 +39,7 @@ const Hero = () => {
           <HappyCustomers />
           <Link
             href="/configure/upload"
-            className="sm:mx-auto md:mx-0 lg:mx-0 text-center flex items-center gap-1 mt-12 md:mt-16 text-xl md:text-3xl rounded-lg w-max py-2 px-6 bg-purple-600  text-white">
+            className="sm:mx-auto md:mx-0 lg:mx-0 text-center flex items-center gap-1 mt-12 md:mt-16 text-xl md:text-3xl rounded-lg w-max py-2 px-6 bg-purple-600  hover:bg-purple-500    text-white">
             Get started
             <ArrowUpRightFromCircle className="ml-1.5 h-5 w-5" />
           </Link>

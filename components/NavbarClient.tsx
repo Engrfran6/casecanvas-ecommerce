@@ -48,17 +48,13 @@ const NavbarClient = ({user, isAdmin, cartEmpty}: NavbarProps) => {
               )}
               <Link
                 href="/configure/upload"
-                className={buttonVariants({
-                  size: 'sm',
-                  className:
-                    'hidden sm:flex items-center gap-1 text-purple-600 bg-transparent border-4 font-bold border-purple-600',
-                })}>
+                className="hidden sm:flex items-center gap-1 text-purple-600 hover:bg-purple-600 hover:text-white px-2 rounded-[.6rem] py-1 border-2 font-bold border-purple-600">
                 Get started
-                <ArrowUpRightFromCircle className="ml-1.5 h-3 w-3" />
+                <ArrowUpRightFromCircle className="ml-1.5 h-3 w-3 font-bold" />
               </Link>
             </div>
           ) : (
-            <>
+            <div className="flex items-center gap-2">
               <Link
                 href="/api/auth/register"
                 className={buttonVariants({size: 'sm', variant: 'ghost'})}>
@@ -72,14 +68,11 @@ const NavbarClient = ({user, isAdmin, cartEmpty}: NavbarProps) => {
               <div className="h-8 w-px bg-zinc-200 hidden sm:block" />
               <Link
                 href="/configure/upload"
-                className={buttonVariants({
-                  size: 'sm',
-                  className: 'flex items-center gap-1',
-                })}>
+                className="hidden sm:flex items-center gap-1 text-purple-600 hover:bg-purple-600 hover:text-white px-2 rounded-[.6rem] py-1 border-2 font-bold border-purple-600">
                 Get started
-                <ArrowUpRightFromCircle className="ml-1.5 h-5 w-5" />
+                <ArrowUpRightFromCircle className="ml-1.5 h-3 w-3 font-bold" />
               </Link>
-            </>
+            </div>
           )}
         </div>
         <div className="flex gap-3 md:gap-6">
